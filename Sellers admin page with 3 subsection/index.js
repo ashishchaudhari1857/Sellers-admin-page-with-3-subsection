@@ -1,3 +1,4 @@
+
 var btn = document.getElementById("btn");
 btn.addEventListener('click' ,add_Prdouct);
   function add_Prdouct(e){
@@ -25,7 +26,7 @@ else  if(obj.Product_Cat==="Food"){
   axios
   .post('https://crudcrud.com/api/dd18d6ac886344b0bd15938670755eb3/Food',obj)
   .then((res)=>{console.log(res)
-    showonScreen(obj,"Food");
+    showonScreen(res.data,"Food");
   })
   .catch(err=>console.log(err));
  
@@ -33,7 +34,7 @@ else  if(obj.Product_Cat==="Food"){
   axios
   .post('https://crudcrud.com/api/dd18d6ac886344b0bd15938670755eb3/Skincare',obj)
   .then((res)=>{console.log(res)
-    showonScreen(obj,"Skincare");
+    showonScreen(res.data,"Skincare");
   })
   .catch(err=>console.log(err));
  
@@ -71,4 +72,19 @@ else  if(obj.Product_Cat==="Food"){
   }
   
 }
-  }
+window.addEventListener('load', function() {
+  console.log("load the page")
+  axios.get('https://crudcrud.com/api/dd18d6ac886344b0bd15938670755eb3/Electronics')
+    .then(function(res) {
+      const parentN = document.getElementById('Electronics');
+      res.data.forEach(function(obj) {
+        showonScreen(obj, 'Electronics', parentN);
+      });
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+
+  })
+}
+ 
