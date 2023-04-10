@@ -73,7 +73,7 @@ else  if(obj.Product_Cat==="Food"){
   
 }
 window.addEventListener('load', function() {
-  console.log("load the page")
+  
   axios.get('https://crudcrud.com/api/dd18d6ac886344b0bd15938670755eb3/Electronics')
     .then(function(res) {
       const parentN = document.getElementById('Electronics');
